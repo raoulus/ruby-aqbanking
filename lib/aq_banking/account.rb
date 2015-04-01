@@ -46,7 +46,7 @@ module AqBanking
     end
 
     def balance
-      @balance||= AqBanking::Request.new(self,:type=>"balance").execute
+      @balance ||= AqBanking::Request.new(self,:type=>"balance").execute
     end
 
   end

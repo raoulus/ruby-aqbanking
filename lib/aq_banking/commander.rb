@@ -63,9 +63,7 @@ module AqBanking
     end
 
 
-
     def self.add_account(account)
-
       system(self.add_account_cmd(account))
       account.build_pin_file
       res = system(self.get_sysid_cmd(account))

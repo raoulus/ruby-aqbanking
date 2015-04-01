@@ -26,13 +26,13 @@ module AqBanking
         @result = process_transactions
       elsif @type =="balance"
         AqBanking::Commander.request_balance(@account)
-        AqBanking::Commander.list_balance(@account)
+        AqBanking::Commander.list_balance()
         @result = process_balance
       end
     end
 
     def process_balance
-      data = CSV.open('result.csv',"r","\t").first
+      data = CSV.open('result.csv', { :col_sep => "\t" }).first
       File.delete("result.csv")
       File.delete("result.ctx")
       data[7].to_f
